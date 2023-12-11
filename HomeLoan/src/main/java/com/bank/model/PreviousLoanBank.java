@@ -10,5 +10,17 @@ import lombok.Data;
 @Data
 @Entity
 public class PreviousLoanBank {
+  @Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int branchId;
+	private String branchName;
+	private double branchCode;
+	private String branchType;
+	private String IFSC_code;
+	private String MICR_code;
+	private double ConatctNumber;
+	private BankAddress BankAddress;
+	private String Email;
+	private String status;
 
 }
