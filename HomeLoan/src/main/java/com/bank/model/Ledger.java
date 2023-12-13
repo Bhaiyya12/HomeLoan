@@ -1,6 +1,8 @@
 package com.bank.model;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Data;
 
@@ -9,6 +11,7 @@ import lombok.Data;
 public class Ledger {
    
 	    @Id
+	    @GeneratedValue(strategy = GenerationType.AUTO)
 		public int ledgerId;
 		public String ledgerCreatedDate;
 		public double totalLoanAmount;

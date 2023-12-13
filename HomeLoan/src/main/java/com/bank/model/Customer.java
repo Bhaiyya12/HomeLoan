@@ -1,4 +1,4 @@
-
+package com.bank.model;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -22,36 +22,52 @@ public class Customer {
 	private double customerAdditionalMobileNumber;
 	private double customerAmountPaidForHome;
 	private double customerTotalLoanRequired;
+	
 	@OneToOne(cascade = CascadeType.ALL)
-	private EducationalInformation educationalInfo;
+	private EducationalInfo educationalInfo;
+	
 	@OneToOne(cascade = CascadeType.ALL)
-	private AllPersonalDocuments allpersonalDoc;
+	private AllPersonelDoc allpersonalDoc;
+	
 	@OneToOne(cascade = CascadeType.ALL)
-    private DependentInforamtion familydependentInfo;
+    private DependentInfo familydependentInfo;
+	
 	@OneToOne(cascade = CascadeType.ALL)
     private CustomerAddress customerAddress;
+	
 	@OneToOne(cascade = CascadeType.ALL)
     private MortgageDetails mortgageDetails;
+	
 	@OneToOne(cascade = CascadeType.ALL)
     private Profession profession;
+	
 	@OneToOne(cascade = CascadeType.ALL)
     private Cibil cibilscore;
+	
 	@OneToOne(cascade = CascadeType.ALL)
     private CurrentLoanDetails currentloandetails;
+	
 	@OneToOne(cascade = CascadeType.ALL)
     private PreviousLoan previousloan;
+	
 	@OneToOne(cascade = CascadeType.ALL)
     private AccountDetails accountdetails;
+	
 	@OneToOne(cascade = CascadeType.ALL)
     private PropertyInfo propertyinfo;
+	
 	@OneToOne(cascade = CascadeType.ALL)
     private GuarantorDetails gurantordetails;
+	
 	@OneToOne(cascade = CascadeType.ALL)
     private LoanDisbursement loandisbursement;
+	
 	@OneToOne(cascade = CascadeType.ALL)
     private Ledger ledger;
+	
 	@OneToOne(cascade = CascadeType.ALL)
     private SanctionLetter sanctionletter;
+	
 	@OneToOne(cascade = CascadeType.ALL)
     private CustomerVerification customerverification;
     
