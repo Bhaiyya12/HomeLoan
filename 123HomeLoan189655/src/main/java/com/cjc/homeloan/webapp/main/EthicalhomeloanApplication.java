@@ -1,14 +1,13 @@
-package com.bank;
+package com.cjc.homeloan.webapp.main;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-
 @SpringBootApplication
-public class HomeLoan1Application {
+public class EthicalhomeloanApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(HomeLoan1Application.class, args);
+		SpringApplication.run(EthicalhomeloanApplication.class, args);
 	}
 
 }
