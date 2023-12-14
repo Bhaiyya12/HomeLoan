@@ -14,15 +14,14 @@ import lombok.Data;
 public class EnquiryDetails {
 	@Id
 	 @GeneratedValue(strategy = GenerationType.AUTO)
-	private int cID;
+	private int cid;
 	private String firstName;
 	private String lastName;
 	private int age;
 	private String email;
 	private Double mobileNo;
 	private Double pancardNo;
-	@OneToOne(cascade = CascadeType.ALL)
-	private Cibil cibilScore;
+	private int cibilScore;
 
 
 }
