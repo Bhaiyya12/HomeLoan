@@ -1,4 +1,4 @@
-package com.cjc.homeloan.webapp.main.serviceinterface;
+
 
 import java.util.List;
 
@@ -24,3 +24,4 @@ public interface EnquiryDetailsServiceI {
 	
 	public int genertaeCibilScore(int cibilId);
 }
+
