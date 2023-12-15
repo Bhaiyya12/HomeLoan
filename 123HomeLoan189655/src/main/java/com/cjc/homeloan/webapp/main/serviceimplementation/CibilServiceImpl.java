@@ -41,14 +41,14 @@ public class CibilServiceImpl implements CibilI {
 		
 		if(a>=750) {
 		c.setStatus("Valid");
-		enquiryDetails.setCibilScore(c);
+		enquiryDetails.setCibilScore(a);
 		edr.save(enquiryDetails);
 		System.out.println("IN CIBIL Serviceimpl = "+enquiryDetails);
 		return c;
 		}
 		else{
 			c.setStatus("Invalid");
-			enquiryDetails.setCibilScore(c);
+			enquiryDetails.setCibilScore(a);
 			edr.save(enquiryDetails);
 			System.out.println("IN CIBIL Serviceimpl = "+enquiryDetails);
 			return c;

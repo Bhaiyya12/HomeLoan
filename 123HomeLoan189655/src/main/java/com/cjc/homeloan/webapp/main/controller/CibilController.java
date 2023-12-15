@@ -40,7 +40,7 @@ public class CibilController {
 		
 		if(edaiDetails!=null)
 		{
-			c.setCibilId(edaiDetails.getCID());
+			c.setCibilId(edaiDetails.getCid());
 			Cibil cibil=csi.saveData(c);
 			return new ResponseEntity<Cibil>(cibil,HttpStatus.CREATED);
 		}
