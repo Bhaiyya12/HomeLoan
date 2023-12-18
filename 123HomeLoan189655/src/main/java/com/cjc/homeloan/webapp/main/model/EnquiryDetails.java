@@ -21,7 +21,8 @@ public class EnquiryDetails {
 	private String email;
 	private Double mobileNo;
 	private Double pancardNo;
-	private int cibilScore;
+	@OneToOne (cascade = CascadeType.MERGE.DETACH.REFRESH.REMOVE)
+	private Cibil cibil;
 
 
 }

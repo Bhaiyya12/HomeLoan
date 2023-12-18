@@ -12,7 +12,7 @@ import lombok.Data;
 @Entity
 public class Cibil {
 	@Id
-	
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer cibilId;
 	private Integer cibilScore;
 	private String cibilScoreDateTime;

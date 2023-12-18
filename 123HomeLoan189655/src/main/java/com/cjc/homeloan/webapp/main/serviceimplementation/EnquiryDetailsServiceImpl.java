@@ -52,23 +52,5 @@ public class EnquiryDetailsServiceImpl implements EnquiryDetailsServiceI {
 		return edr.save(enquiry);
 	}
 
-	@Override
-	public int genertaeCibilScore(int cibilId) {
-		
-		Optional<EnquiryDetails> e1=edr.findById(cibilId);
-		 EnquiryDetails ed = e1.get();
-		
-		 int min=600;
-		 int max=900;
-		 
-		 int a=(int)(Math.random()*(max-min+1)+min);
-		 ed.setCibilScore(a);
-		 edr.save(ed);
-		 
-		 
-		 
-		
-		
-		return a;
-	}
+
 }

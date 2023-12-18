@@ -29,6 +29,7 @@ public class EnquiryDetailsContoller {
 	public ResponseEntity<EnquiryDetails> saveEnquiryDetails(@RequestBody EnquiryDetails enqury)
 	{
 		EnquiryDetails eq=edi.saveEnquiryDetails(enqury);
+		
 		return new ResponseEntity<EnquiryDetails>(eq,HttpStatus.OK);
 	}
 	  
@@ -52,37 +53,9 @@ public class EnquiryDetailsContoller {
 		edi.deleteEnquiry(id);	 
 	}
 	
-	@GetMapping("/enquiryy/{id}")
-	public ResponseEntity<Integer> genertaeCibilScore(@PathVariable int id)
-	{
-		Integer e=edi.genertaeCibilScore(id);
-		return new ResponseEntity<Integer>(e,HttpStatus.OK);
-	}
+
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 //	@PutMapping("/enquiry/{id}")
 //	public void editEnquiry(@PathVariable ("id") int id, @RequestBody EnquiryDetails enqury)
 //	{
