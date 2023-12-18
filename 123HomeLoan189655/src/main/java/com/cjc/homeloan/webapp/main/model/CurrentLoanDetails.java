@@ -15,17 +15,15 @@ public class CurrentLoanDetails
 	 @GeneratedValue(strategy = GenerationType.AUTO)
 	private int currentloanId;
 	private int currentloanNo;
-	@OneToOne(cascade = CascadeType.ALL)
-	private EMIDetails Emidetails;  // one to one 
 	private double loanAmount;
-	private int rateOfInterest;
+	private double rateOfInterest;
 	private int tenure ;
 	private double totalAmountToBePaid;
-	private int processingFees;
+	private double processingFees;
 	private double totalInterest;
 	private String sanctionDate;
 	private String remark;
 	private String status;
-	
-
+	@OneToOne(cascade = CascadeType.MERGE.DETACH.REFRESH.REMOVE)
+	private EMIDetails Emidetails;  
 }
