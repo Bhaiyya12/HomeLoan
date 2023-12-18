@@ -25,5 +25,7 @@ public interface EnquiryDetailsServiceI {
 	public EnquiryDetails editEnquiry(EnquiryDetails enqury);
 	
 	
+	
+	
 }
 

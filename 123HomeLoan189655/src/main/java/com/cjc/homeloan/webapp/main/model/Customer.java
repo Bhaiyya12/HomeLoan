@@ -41,8 +41,7 @@ public class Customer {
 	@OneToOne(cascade = CascadeType.ALL)
     private Profession profession;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-    private Cibil cibilscore;
+	
 	
 	@OneToOne(cascade = CascadeType.ALL)
     private CurrentLoanDetails currentloandetails;
@@ -59,12 +58,17 @@ public class Customer {
 	@OneToOne(cascade = CascadeType.ALL)
     private GuarantorDetails gurantordetails;
 	
+	
+	//1
 	@OneToOne(cascade = CascadeType.ALL)
     private LoanDisbursement loandisbursement;
 	
+	
+	//2
 	@OneToOne(cascade = CascadeType.ALL)
     private Ledger ledger;
 	
+	//3
 	@OneToOne(cascade = CascadeType.ALL)
     private SanctionLetter sanctionletter;
 	

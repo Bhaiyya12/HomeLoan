@@ -52,5 +52,10 @@ public class EnquiryDetailsServiceImpl implements EnquiryDetailsServiceI {
 		return edr.save(enquiry);
 	}
 
+	
+	
+	
+	
+
 
 }
