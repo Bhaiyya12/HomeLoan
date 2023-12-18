@@ -27,7 +27,7 @@ public class CibilServiceImpl implements CibilI {
 		EnquiryDetails enquiryDetails=edr.findById(c.getCibilId()).orElse(null);
 		
 		//CIbil Score
-		int min=600;
+		int min=300;
 		int max=900;
 		int a	=(int) (Math.random()*(max-min+1)+min);
 		c.setCibilScore(a);
@@ -41,14 +41,14 @@ public class CibilServiceImpl implements CibilI {
 		
 		if(a>=750) {
 		c.setStatus("Valid");
-		enquiryDetails.setCibilScore(c);
+		c.getCibilScore();
 		edr.save(enquiryDetails);
 		System.out.println("IN CIBIL Serviceimpl = "+enquiryDetails);
 		return c;
 		}
 		else{
 			c.setStatus("Invalid");
-			enquiryDetails.setCibilScore(c);
+			
 			edr.save(enquiryDetails);
 			System.out.println("IN CIBIL Serviceimpl = "+enquiryDetails);
 			return c;

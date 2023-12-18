@@ -32,15 +32,15 @@ public class CibilController {
 	//http://localhost:9595/cibil/cibildata/1
 	
 	
-	@PostMapping("/cibildata/{cibilId}")
-	public ResponseEntity<Cibil> saveCibilData(@RequestBody Cibil c, @PathVariable("cibilId") int cibilId)
+	@PostMapping("/cibildata/{cid}")
+	public ResponseEntity<Cibil> saveCibilData(@RequestBody Cibil c, @PathVariable("cid") int cid)
 	{
-		System.out.println("CIBIL ID = "+cibilId);
-		EnquiryDetails edaiDetails=edi.getSingleEnquiryDetails(cibilId);
+		System.out.println("CIBIL ID = "+cid);
+		EnquiryDetails edaiDetails=edi.getSingleEnquiryDetails(cid);
 		
 		if(edaiDetails!=null)
 		{
-			c.setCibilId(edaiDetails.getCID());
+			c.setCibilId(edaiDetails.getCid());
 			Cibil cibil=csi.saveData(c);
 			return new ResponseEntity<Cibil>(cibil,HttpStatus.CREATED);
 		}

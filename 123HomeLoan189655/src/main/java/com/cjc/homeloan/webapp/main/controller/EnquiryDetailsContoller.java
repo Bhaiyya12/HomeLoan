@@ -1,8 +1,11 @@
 package com.cjc.homeloan.webapp.main.controller;
 
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,24 +26,25 @@ public class EnquiryDetailsContoller {
 	EnquiryDetailsServiceI edi;
 	
 	@PostMapping("/enquiry")
-	public EnquiryDetails saveEnquiryDetails(@RequestBody EnquiryDetails enqury)
+	public ResponseEntity<EnquiryDetails> saveEnquiryDetails(@RequestBody EnquiryDetails enqury)
 	{
 		EnquiryDetails eq=edi.saveEnquiryDetails(enqury);
-		return eq;
+		
+		return new ResponseEntity<EnquiryDetails>(eq,HttpStatus.OK);
 	}
-	
+	  
 	@GetMapping("/enquiry/{id}")
-	public EnquiryDetails getSingleEnquiryDetails(@PathVariable int id)
+	public ResponseEntity<EnquiryDetails> getSingleEnquiryDetails(@PathVariable int id)
 	{
 		EnquiryDetails e=edi.getSingleEnquiryDetails(id);
-		return e;
+		return new ResponseEntity<EnquiryDetails>(e,HttpStatus.OK);
 	}
 	
 	@GetMapping("/enquiry")
-	public List <EnquiryDetails> getAllEnquiryDetails()
+	public ResponseEntity<List<EnquiryDetails>> getAllEnquiryDetails()
 	{
 		List<EnquiryDetails> enquirys=edi.getAllEnquiryDetails();
-		return enquirys;
+		return new ResponseEntity<List<EnquiryDetails>>(enquirys,HttpStatus.OK);
 	}
 	
 	@DeleteMapping("/enquiry/{id}")
@@ -49,19 +53,22 @@ public class EnquiryDetailsContoller {
 		edi.deleteEnquiry(id);	 
 	}
 	
-	@PutMapping("/enquiry/{id}")
-	public void editEnquiry(@PathVariable ("id") int id, @RequestBody EnquiryDetails enqury)
-	{
-		enqury.setCID(id);
-		enqury.getCibilScore().setRemark("APPROVED");
-		EnquiryDetails enquiryDetails=edi.editEnquiry(enqury);	 
-	}
+
 	
-	@PutMapping("/enquiryreject/{id}")
-	public void editEnquiryReject(@PathVariable ("id") int id, @RequestBody EnquiryDetails enqury)
-	{
-		enqury.setCID(id);
-		enqury.getCibilScore().setRemark("REJECT");
-		EnquiryDetails enquiryDetails=edi.editEnquiry(enqury);	 
-	}
+
+//	@PutMapping("/enquiry/{id}")
+//	public void editEnquiry(@PathVariable ("id") int id, @RequestBody EnquiryDetails enqury)
+//	{
+//		enqury.setCid(id);
+//		enqury.getCibil().setRemark("APPROVED");
+//		EnquiryDetails enquiryDetails=edi.editEnquiry(enqury);	 
+//	}
+//	
+//	@PutMapping("/enquiryreject/{id}")
+//	public void editEnquiryReject(@PathVariable ("id") int id, @RequestBody EnquiryDetails enqury)
+//	{
+//		enqury.setCid(id);
+//		enqury.getCibil().setRemark("REJECT");
+//		EnquiryDetails enquiryDetails=edi.editEnquiry(enqury);	 
+//	}
 }

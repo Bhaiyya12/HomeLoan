@@ -1,10 +1,13 @@
 package com.cjc.homeloan.webapp.main.serviceimplementation;
 
+
+
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 
 import com.cjc.homeloan.webapp.main.model.EnquiryDetails;
 import com.cjc.homeloan.webapp.main.repository.EnquiryDetailsRepository;
@@ -48,4 +51,6 @@ public class EnquiryDetailsServiceImpl implements EnquiryDetailsServiceI {
 	public EnquiryDetails editEnquiry(EnquiryDetails enquiry) {
 		return edr.save(enquiry);
 	}
+
+
 }
