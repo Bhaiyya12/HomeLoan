@@ -21,8 +21,8 @@ public class EnquiryDetails {
 	private String email;
 	private Double mobileNo;
 	private Double pancardNo;
-	private String mailSent;
-	@OneToOne (cascade = CascadeType.ALL)
+//	private String mailSent;
+	@OneToOne (cascade = CascadeType.MERGE.DETACH.REMOVE)
 	private Cibil cibil;
 	
 
