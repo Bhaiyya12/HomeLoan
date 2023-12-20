@@ -53,7 +53,7 @@ public class DependentInfoController {
 	}
 	
 	
-	@DeleteMapping("/deleteData")
+	@DeleteMapping("/deleteData1")
 	public String deleteDepenInfo(int dependentinfoid)
 	{
 		String deleteDepenInfo = dsi.deleteDepenInfo(dependentinfoid);
