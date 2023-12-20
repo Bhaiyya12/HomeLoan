@@ -2,6 +2,7 @@ package com.cjc.homeloan.webapp.main.serviceinterface;
 
 import java.util.List;
 
+import org.apache.catalina.User;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -15,5 +16,7 @@ public void saveUser(String user_json, MultipartFile userProfile);
 public Administrator login(String username, String password);
 
 public Iterable<Administrator> getAllData();
+
+public void deleteSingleData(int userId);
 
 }
