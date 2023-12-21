@@ -3,11 +3,22 @@ package com.cjc.homeloan.webapp.main.serviceinterface;
 import java.util.List;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import com.cjc.homeloan.webapp.main.model.Customer;
 
 public interface CustomerServiceinterface {
 	
+	//reg
+	public Customer saveRegData(Customer rd);
+
+	
+	
+	
+	
+	
+	
+
 	public List<Customer> getAllCustomer();
 
 	public Customer getSingleCustomer(Integer customerId);

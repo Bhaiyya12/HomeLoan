@@ -24,9 +24,6 @@ public class EnquiryDetails {
 	private int cibilScore;
 	private String cibilStatus;
 	private String remark;
-//	private String mailSent;
-	@OneToOne (cascade = CascadeType.MERGE.DETACH.REMOVE)
-	private Cibil cibil;
 	
 
 

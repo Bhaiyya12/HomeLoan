@@ -22,27 +22,17 @@ public class Customer {
 	private double customerAdditionalMobileNumber;
 	private double customerAmountPaidForHome;
 	private double customerTotalLoanRequired;
+	private String education;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-	private EducationalInfo educationalInfo;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-	private AllPersonelDoc allpersonalDoc;
+	
 	
 	@OneToOne(cascade = CascadeType.ALL)
     private DependentInfo familydependentInfo;
 	
 	@OneToOne(cascade = CascadeType.ALL)
     private CustomerAddress customerAddress;
-	
-	@OneToOne(cascade = CascadeType.ALL)
-    private MortgageDetails mortgageDetails;
-	
-	@OneToOne(cascade = CascadeType.ALL)
-    private Profession profession;
-	
-	
-	
+
 	@OneToOne(cascade = CascadeType.ALL)
     private CurrentLoanDetails currentloandetails;
 	
@@ -56,25 +46,25 @@ public class Customer {
     private PropertyInfo propertyinfo;
 	
 	@OneToOne(cascade = CascadeType.ALL)
-    private GuarantorDetails gurantordetails;
+    private GuarantorDetails guarantordetails;
 	
 	
-	//1
-	@OneToOne(cascade = CascadeType.ALL)
-    private LoanDisbursement loandisbursement;
-	
-	
-	//2
-	@OneToOne(cascade = CascadeType.ALL)
-    private Ledger ledger;
-	
-	//3
-	@OneToOne(cascade = CascadeType.ALL)
-    private SanctionLetter sanctionletter;
-	
-	@OneToOne(cascade = CascadeType.ALL)
-    private CustomerVerification customerverification;
-    
+//	//1
+//	@OneToOne(cascade = CascadeType.ALL)
+//    private LoanDisbursement loandisbursement;
+//	
+//	
+//	//2
+//	@OneToOne(cascade = CascadeType.ALL)
+//    private Ledger ledger;
+//	
+//	//3
+//	@OneToOne(cascade = CascadeType.ALL)
+//    private SanctionLetter sanctionletter;
+//	
+//	@OneToOne(cascade = CascadeType.ALL)
+//    private CustomerVerification customerverification;
+//    
 
 
 }

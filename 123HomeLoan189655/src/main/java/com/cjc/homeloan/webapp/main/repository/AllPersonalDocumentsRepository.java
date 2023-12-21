@@ -9,5 +9,5 @@ import com.cjc.homeloan.webapp.main.model.AllPersonelDoc;
 
 @Repository
 public interface AllPersonalDocumentsRepository extends JpaRepository<AllPersonelDoc, Integer> {
-
+	AllPersonelDoc findByCustomerid(int customerid);
 }

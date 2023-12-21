@@ -10,7 +10,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cjc.homeloan.webapp.main.model.Cibil;
 import com.cjc.homeloan.webapp.main.model.EnquiryDetails;
 import com.cjc.homeloan.webapp.main.repository.EnquiryDetailsRepository;
 import com.cjc.homeloan.webapp.main.serviceinterface.EnquiryDetailsServiceI;

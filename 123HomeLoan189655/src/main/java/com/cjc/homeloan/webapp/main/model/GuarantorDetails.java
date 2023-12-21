@@ -8,17 +8,18 @@ import lombok.Data;
 
 @Data
 @Entity
-public class GuarantorDetails {
+public class GuarantorDetails 
+{
 	
 	@Id
 	 @GeneratedValue(strategy = GenerationType.AUTO)
     private	int gid;
-	private		String gName; 
-	private		String gDateofBirth;
-	private		String gRelationshipwithCustomer;
-	private		String gMobNo;
-	private		String gAdharCardNo;
-	private		String gJobDetails;
-	private		String gloaclAddress;
-	private		String gPermanentAddress;
+	private	String gname; 
+	private	String gdateofBirth;
+	private	String grelationshipwithCustomer;
+	private	String gmobNo;
+	private	String gadharCardNo;
+	private	String gjobDetails;
+	private	String gloaclAddress;
+	private	String gpermanentAddress;
 }

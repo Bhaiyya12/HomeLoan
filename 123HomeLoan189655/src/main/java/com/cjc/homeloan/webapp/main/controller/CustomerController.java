@@ -8,6 +8,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,7 +22,6 @@ import org.springframework.web.multipart.MultipartFile;
 import com.cjc.homeloan.webapp.main.model.AllPersonelDoc;
 import com.cjc.homeloan.webapp.main.model.Customer;
 
-import com.cjc.homeloan.webapp.main.model.MortgageDetails;
 import com.cjc.homeloan.webapp.main.model.Profession;
 import com.cjc.homeloan.webapp.main.model.PropertyInfo;
 import com.cjc.homeloan.webapp.main.serviceinterface.CustomerServiceinterface;
@@ -29,7 +29,7 @@ import com.cjc.homeloan.webapp.main.serviceinterface.EnquiryDetailsServiceI;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-
+@CrossOrigin
 @RestController
 public class CustomerController {
 	
@@ -39,78 +39,30 @@ public class CustomerController {
 	@Autowired
 	EnquiryDetailsServiceI enquiryDetailsServiceI;
 	
-	@PostMapping(value="/customer")
-	public String saveCustomer(@RequestPart("addressProof")MultipartFile file1,
-			@RequestPart("panCard")MultipartFile file2,
-			@RequestPart("incomeTax")MultipartFile file3,
-			@RequestPart("addharCard")MultipartFile file4,
-			@RequestPart("photo")MultipartFile file5,
-			@RequestPart("signature")MultipartFile file6,
-			@RequestPart("thumb")MultipartFile file7,
-			@RequestPart("bankCheque")MultipartFile file8,
-			@RequestPart("salarySlips")MultipartFile file9,
-			@RequestPart("mortgagePropertyProof")MultipartFile file10,
-			@RequestPart("mortgagePropertyInsurance")MultipartFile file11,
-			@RequestPart("professionsalaryslips")MultipartFile file12,
-			@RequestPart("propertyDocuments")MultipartFile file13,
-			@RequestPart("priceProofs")MultipartFile file14,
-			@RequestPart("cust")String cust) throws JsonMappingException, JsonProcessingException
+	
+	
+	
+	
+
+	@PostMapping("/saveRegDetailsData")
+	public Customer saveRegData(@RequestBody Customer rd)
 	{
-		ObjectMapper objectMapper= new ObjectMapper();
-		
-		 Customer customer = objectMapper.readValue(cust,  Customer.class);
-	    try {
-	    	
-	    	AllPersonelDoc apd=new AllPersonelDoc();
-	    	
-	    	apd.setAddharCard(file4.getBytes());
-	    	apd.setAddressProof(file1.getBytes());
-	    	apd.setPanCard(file2.getBytes());
-	    	apd.setIncomeTax(file3.getBytes());
-	    	apd.setPhoto(file5.getBytes());
-	    	apd.setSignature(file6.getBytes());
-	    	apd.setThumb(file7.getBytes());
-	    	apd.setBankCheque(file8.getBytes());
-	    	apd.setSalarySlips(file9.getBytes());
-	    	System.out.println(apd); 
-	    	customer.setAllpersonalDoc(apd);
-	    	
-	    	MortgageDetails details= new MortgageDetails();
-	    	details.setMortageLoanOnProperty(customer.getMortgageDetails().getMortageLoanOnProperty());
-	    	details.setMortagePropertyType(customer.getMortgageDetails().getMortagePropertyType());
-	    	details.setMortagePropertyValue(customer.getMortgageDetails().getMortagePropertyValue());
-	    	
-	    	customer.setMortgageDetails(details);
-	    	
-	    	Profession pro=new Profession();
-	    	pro.setProfessionType(customer.getProfession().getProfessionType());
-	    	pro.setProfessionDesignation(customer.getProfession().getProfessionDesignation());
-	    	pro.setProfessionSalaryType(customer.getProfession().getProfessionSalaryType());
-	    	pro.setProfessionSalary(customer.getProfession().getProfessionSalary());
-	    	pro.setProfessionWorkingPeriod(customer.getProfession().getProfessionWorkingPeriod());
-	    	customer.setProfession(pro);
-	    	
-	    	PropertyInfo proinfo=new PropertyInfo();
-	    	proinfo.setConstructionArea(customer.getPropertyinfo().getConstructionArea());
-	    	proinfo.setConstructionPrice(customer.getPropertyinfo().getConstructionPrice());
-	    	proinfo.setPropertyArea(customer.getPropertyinfo().getPropertyArea());
-	    	proinfo.setPropertyPrice(customer.getPropertyinfo().getPropertyPrice());
-	    	
-	    	
-	    	
-	    	customer.setPropertyinfo(proinfo);
-	    	
-	    	
-//	    	
-			 Customer custom= customerServiceInterface.saveCustomer(customer);
-			return "saved Successfully";
-			
-		} catch (IOException e) {
-			e.printStackTrace();
-			return null;
-			
-		}
+		System.out.println("uuuuuuuuuuuuuuuuuuuuuuuuuuu");
+		Customer crd= customerServiceInterface.saveRegData(rd);
+		return crd;	
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
 	@GetMapping(value="/customer")
 	public List<Customer> getAllCustomer()
 	{
@@ -134,18 +86,6 @@ public class CustomerController {
 		return "Deleted Successfully";
 	}
 	
-	
-	@PutMapping(value="/customer/{customerId}")
-	public String updateCustomer(@RequestBody Customer customer, @PathVariable ("customerId") Integer customerId)
-	{
-		
-
-		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd"); 
-	    Date date = new Date();  
-		customer.getCustomerverification().setVerificationDate(formatter.format(date));
-		Customer custom= customerServiceInterface.updateCustomer(customer,customerId);
-		return "UPADATED SUCCEEFULLY";
-	}
 	
 	
 
