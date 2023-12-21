@@ -17,17 +17,15 @@ public class PreviousLoan
 {
  @Id
  @GeneratedValue(strategy = GenerationType.AUTO)
-	private int previousLoanId;
-	private double previousLoanAmount;
-	private int previousLoanTenure;
-	private double previousLoanpaidAmount;
-	private double previousLoanremainingAmount;
-	private int previousLoandefaulterCount;
-	@OneToOne(cascade = CascadeType.ALL)
+ private int ploanId;
+ private	double ploanAmount;
+ private	int pTenure;
+ private	double paidAmount;
+ private	double remainingAmount;
+ private	String previousbankIFSC;
+ private	String status;
+ private	String remark;
 	
-	private PreviousLoanBank previousLoanbankDetails;   
-	private String previousLoanStatus;
-	private String previousLoanRemark;
 
 
 

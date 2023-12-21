@@ -4,7 +4,7 @@ package com.cjc.homeloan.webapp.main.serviceinterface;
 
 import java.util.List;
 
-
+import com.cjc.homeloan.webapp.main.model.Cibil;
 import com.cjc.homeloan.webapp.main.model.EnquiryDetails;
 
 
@@ -25,7 +25,7 @@ public interface EnquiryDetailsServiceI {
 	public EnquiryDetails editEnquiry(EnquiryDetails enqury);
 	
 	
-	
+	public EnquiryDetails Cibilgenrate(int enquryid);
 	
 }
 

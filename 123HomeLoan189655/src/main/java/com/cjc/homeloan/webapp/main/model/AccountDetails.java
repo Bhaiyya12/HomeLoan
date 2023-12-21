@@ -12,12 +12,12 @@ public class AccountDetails
 {
 	 @Id
 	 @GeneratedValue(strategy = GenerationType.AUTO)
-	 private int accountId;
-	 private String accountType;
-	 private double accountBalance;
-	 private String accountHolderName;
-	 private String accountStatus;
-	 private long accountNumber;
+private	 int accountid;
+	 private	String accountype;
+	 private	String accountHolderName;
+	 private	String accountStatus;
+	 private	String accountNO;
+	 private		String IFSC_Code;
 	 
 
 }

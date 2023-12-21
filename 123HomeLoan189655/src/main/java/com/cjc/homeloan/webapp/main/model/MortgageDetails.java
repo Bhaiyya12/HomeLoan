@@ -13,9 +13,9 @@ public class MortgageDetails {
 	 @GeneratedValue(strategy = GenerationType.AUTO)
 	private int mortageId;
 	private double mortagePropertyValue;
-	private byte[] mortagePropertyProof;
+	
 	private String mortagePropertyType;
 	private double mortageLoanOnProperty;
-	private byte[] mortagePropertyInsurance;
+	
 
 }

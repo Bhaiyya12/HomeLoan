@@ -79,12 +79,10 @@ public class CustomerController {
 	    	details.setMortageLoanOnProperty(customer.getMortgageDetails().getMortageLoanOnProperty());
 	    	details.setMortagePropertyType(customer.getMortgageDetails().getMortagePropertyType());
 	    	details.setMortagePropertyValue(customer.getMortgageDetails().getMortagePropertyValue());
-	    	details.setMortagePropertyProof(file10.getBytes());
-	    	details.setMortagePropertyInsurance(file11.getBytes());
+	    	
 	    	customer.setMortgageDetails(details);
 	    	
 	    	Profession pro=new Profession();
-	    	pro.setProfessionSalarySlips(file12.getBytes());
 	    	pro.setProfessionType(customer.getProfession().getProfessionType());
 	    	pro.setProfessionDesignation(customer.getProfession().getProfessionDesignation());
 	    	pro.setProfessionSalaryType(customer.getProfession().getProfessionSalaryType());
@@ -97,11 +95,9 @@ public class CustomerController {
 	    	proinfo.setConstructionPrice(customer.getPropertyinfo().getConstructionPrice());
 	    	proinfo.setPropertyArea(customer.getPropertyinfo().getPropertyArea());
 	    	proinfo.setPropertyPrice(customer.getPropertyinfo().getPropertyPrice());
-	    	proinfo.setPropertyType(customer.getPropertyinfo().getPropertyType());
-	    	proinfo.setPropertyAddress(customer.getPropertyinfo().getPropertyAddress());
 	    	
-	    	proinfo.setPropertyDocument(file13.getBytes());
-	    	proinfo.setPrizeProofs(file14.getBytes());
+	    	
+	    	
 	    	customer.setPropertyinfo(proinfo);
 	    	
 	    	

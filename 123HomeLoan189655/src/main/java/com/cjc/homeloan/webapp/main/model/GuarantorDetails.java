@@ -12,15 +12,13 @@ public class GuarantorDetails {
 	
 	@Id
 	 @GeneratedValue(strategy = GenerationType.AUTO)
-	private int GuarantorId;
-	private String GuarantorName;
-	private String GaurantorDateOfBirth;
-	private String GuarantorRelationshipWithCustomer;
-	private long GuarantorMobileNumber;
-	private long GuarantorAadharCardNo;
-	private String GuarantorMortgageDetails;
-	private String GuarantorJobDetails;
-	private String GuarantorLocalAddress;
-	private String GuarantorPermanentAddress;
-
+    private	int gid;
+	private		String gName; 
+	private		String gDateofBirth;
+	private		String gRelationshipwithCustomer;
+	private		String gMobNo;
+	private		String gAdharCardNo;
+	private		String gJobDetails;
+	private		String gloaclAddress;
+	private		String gPermanentAddress;
 }

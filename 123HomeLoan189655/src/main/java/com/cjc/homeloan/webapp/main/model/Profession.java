@@ -17,7 +17,7 @@ public class Profession {
 	private String professionSalaryType;
 	private String professionWorkingPeriod;
 	private String professionDesignation;
-	private byte[] professionSalarySlips;
+//	private byte[] professionSalarySlips;
 
 
 }

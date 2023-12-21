@@ -58,7 +58,7 @@ public class CustomerServiceimpl implements CustomerServiceinterface {
 		customer.getAllpersonalDoc().setDocumentID(customerData.getAllpersonalDoc().getDocumentID());
 		customer.getMortgageDetails().setMortageId(customerData.getMortgageDetails().getMortageId());
 		customer.getProfession().setProfessionId(customerData.getProfession().getProfessionId());
-		customer.getPropertyinfo().setPropertyId(customerData.getPropertyinfo().getPropertyId());
+		//customer.getPropertyinfo().setPropertyId(customerData.getPropertyinfo().getPropertyId());
 		      customer.setCustomerId(customerId);      
 		return custoRepository.save(customer);
 	}
@@ -114,7 +114,7 @@ public class CustomerServiceimpl implements CustomerServiceinterface {
 		customer.getCurrentloandetails().setSanctionDate(sanctionDate);
 		customer.getCurrentloandetails().setStatus(status);
 		customer.getCurrentloandetails().setProcessingFees(processingFees);
-		customer.getCurrentloandetails().getEmidetails().setEmiAmountMonthly(emiAmount);
+	//	customer.getCurrentloandetails().getEmidetails().setEmiAmountMonthly(emiAmount);
 		
 		
 		//Sanction Letter Set Values

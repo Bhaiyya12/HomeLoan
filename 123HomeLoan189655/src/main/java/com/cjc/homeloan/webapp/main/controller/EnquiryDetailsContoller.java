@@ -31,16 +31,20 @@ public class EnquiryDetailsContoller {
 		return eq;
 	}
 	
+	
+
+	
 	@GetMapping("/enquiry/{id}")
-	public EnquiryDetails getSingleEnquiryDetails(@PathVariable int id)
+	public EnquiryDetails getSingleEnquiryDetails(@PathVariable int cid)
 	{
-		EnquiryDetails e=edi.getSingleEnquiryDetails(id);
+		EnquiryDetails e=edi.getSingleEnquiryDetails(cid);
 		return e;
 	}
 	
 	@GetMapping("/enquiry")
 	public List <EnquiryDetails> getAllEnquiryDetails()
 	{
+		System.out.println("gettttttttttttt");
 		List<EnquiryDetails> enquirys=edi.getAllEnquiryDetails();
 		return enquirys;
 	}
@@ -51,19 +55,24 @@ public class EnquiryDetailsContoller {
 		edi.deleteEnquiry(id);	 
 	}
 	
-//	@PutMapping("/enquiry/{id}")
-//	public void editEnquiry(@PathVariable ("id") int id, @RequestBody EnquiryDetails enqury)
-//	{
-//		enqury.setCID(id);
-//		enqury.getCibilScore().setRemark("APPROVED");
-//		EnquiryDetails enquiryDetails=edi.editEnquiry(enqury);	 
-//	}
-//	
-//	@PutMapping("/enquiryreject/{id}")
-//	public void editEnquiryReject(@PathVariable ("id") int id, @RequestBody EnquiryDetails enqury)
-//	{
-//		enqury.setCID(id);
-//		enqury.getCibilScore().setRemark("REJECT");
-//		EnquiryDetails enquiryDetails=edi.editEnquiry(enqury);	 
-//	}
+
+	@GetMapping("/genCibil/{enquiryid}")
+	public EnquiryDetails getCibil(@PathVariable  int enquiryid)
+	{
+		System.out.println("kkk"+enquiryid);
+		
+		EnquiryDetails eq=edi.Cibilgenrate(enquiryid);
+		return eq;
+	}
+
+	@PutMapping("/update")
+	public EnquiryDetails update(@RequestBody EnquiryDetails enqury)
+	{
+		
+		
+		return edi.saveEnquiryDetails(enqury);
+	}
+
+	
 }
+

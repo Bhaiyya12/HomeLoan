@@ -24,6 +24,6 @@ public class CurrentLoanDetails
 	private String sanctionDate;
 	private String remark;
 	private String status;
-	@OneToOne(cascade = CascadeType.MERGE.DETACH.REFRESH.REMOVE)
-	private EMIDetails Emidetails;  
+//	@OneToOne(cascade = CascadeType.MERGE.DETACH.REFRESH.REMOVE)
+//	private EMIDetails Emidetails;  
 }

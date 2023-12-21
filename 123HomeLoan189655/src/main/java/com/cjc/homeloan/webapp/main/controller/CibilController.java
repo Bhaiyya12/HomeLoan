@@ -28,48 +28,12 @@ public class CibilController {
 	EnquiryDetailsServiceI edi;
 	
 	
-	
-	//http://localhost:9595/cibil/cibildata/1
-	
-	
-	@PostMapping("/cibildata/{cid}")
-	public ResponseEntity<Cibil> saveCibilData(@RequestBody Cibil c, @PathVariable("cid") int cid)
+	@GetMapping("/genCibil/{enquiryid}")
+	public EnquiryDetails getCibil(@PathVariable  int enquiryid)
 	{
-		System.out.println("CIBIL ID = "+cid);
-		EnquiryDetails edaiDetails=edi.getSingleEnquiryDetails(cid);
+		System.out.println("kkk"+enquiryid);
 		
-		if(edaiDetails!=null)
-		{
-			c.setCibilId(edaiDetails.getCid());
-			Cibil cibil=csi.saveData(c);
-			return new ResponseEntity<Cibil>(cibil,HttpStatus.CREATED);
-		}
-		else {
-				throw new NotFoundException("Cibil Detail Not Found");
-		}
-	}
-	
-	//http://localhost:9595/api/getCibilData
-	
-	
-	@GetMapping("/cibildata")
-	public ResponseEntity<Iterable<Cibil>> getAllCibilData(){
-		Iterable<Cibil> c =csi.getAllCibilData();
-		return new ResponseEntity<Iterable<Cibil>>(c,HttpStatus.OK);
-	}
-	
-	//http://localhost:9595/api/getSingleCibilData/8
-	
-	@GetMapping("/cibildata/{cibilId}")
-	public ResponseEntity<Cibil> getSingleData(@PathVariable Integer cibilId) {
-		Cibil c=csi.getSingleData(cibilId);
-		if(c!=null)
-		{
-			return new ResponseEntity<Cibil>(c,HttpStatus.OK);
-		}
-		else {
-			throw new NotFoundException("Cibil Detail not Found");
-		}
-		
+		EnquiryDetails eq=edi.Cibilgenrate(enquiryid);
+		return eq;
 	}
 }
