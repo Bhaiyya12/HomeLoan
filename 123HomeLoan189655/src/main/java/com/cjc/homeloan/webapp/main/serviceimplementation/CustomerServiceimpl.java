@@ -66,7 +66,7 @@ public class CustomerServiceimpl implements CustomerServiceinterface {
 	@Override
 	public ResponseEntity<Customer> sanctionLoan(Customer customer, Integer customerId) {
 		
-		Double loanamount=customer.getCurrentloandetails().getLoanAmount();
+		Double loanamount=customer.getCurrentloandetails().getCustomerTotalLoanRequired();
 		Integer tenure = customer.getCurrentloandetails().getTenure();
 		Double rateofInterest= customer.getCurrentloandetails().getRateOfInterest();
 		Double roi=rateofInterest;
@@ -81,11 +81,10 @@ public class CustomerServiceimpl implements CustomerServiceinterface {
 		double totalAmountpaid;
 		double totalInterest;
 		double emiAmount;
-		String status;
-	
-		double processingFees= (loanamount*0.005);
 		
-//		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");  
+	
+		
+//		
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");  
 	    Date date = new Date();  
 		String sanctionDate=formatter.format(date);
@@ -102,33 +101,27 @@ public class CustomerServiceimpl implements CustomerServiceinterface {
 		totalInterest= totalAmountpaid-loanamount ;
 		System.out.println("total Interest"+totalInterest);
 		
-		status="SANCTIONED";
-		System.out.println("Status"+status);
+		
 		
 		
 		
 		customer.setCustomerId(customerId);
 		customer.getCurrentloandetails().setRateOfInterest(roi);
-		customer.getCurrentloandetails().setTotalAmountToBePaid(totalAmountpaid);
-		customer.getCurrentloandetails().setTotalInterest(totalInterest);
-		customer.getCurrentloandetails().setSanctionDate(sanctionDate);
-		customer.getCurrentloandetails().setStatus(status);
-		customer.getCurrentloandetails().setProcessingFees(processingFees);
-		customer.getCurrentloandetails().getEmidetails().setEmiAmountMonthly(emiAmount);
+//		customer.getCurrentloandetails().setCustomerTotalLoanRequired(totalAmountpaid);
+//		customer.getCurrentloandetails().getEmidetails().setEmiAmountMonthly(emiAmount);
 		
 		
-		//Sanction Letter Set Values
-				customer.getSanctionletter().setApplicantName(customer.getCustomerName());
-				customer.getSanctionletter().setSanctionDate(sanctionDate);
-				customer.getSanctionletter().setLoanAmtSanctioned(loanamount);
-				customer.getSanctionletter().setInterestType("fixed");
-				customer.getSanctionletter().setRateOfInterest(0);
-				customer.getSanctionletter().setLoanTenure(tenure);;
-				customer.getSanctionletter().setMonthlyEmiAmount(emiAmount);
-				customer.getSanctionletter();
-				customer.getSanctionletter().setStatus("SANCTIONED");
 		
-//		return custoRepository.save(customer);
+//				customer.getSanctionletter().set(customer.getCustomerName());
+//				customer.getSanctionletter().setSanctionDate(sanctionDate);
+				customer.getSanctionletter().setPayableAmmount(loanamount);
+//				customer.getSanctionletter().setInterestType("fixed");
+				customer.getSanctionletter().setInterestRate(0);
+				customer.getSanctionletter().setSanTenure(tenure);;
+				customer.getSanctionletter().setMonthlyEmi(emiAmount);
+
+		
+
 				Customer cust=custoRepository.save(customer);
 				
 				return new ResponseEntity<Customer>(cust, HttpStatus.CREATED);
@@ -144,7 +137,7 @@ public class CustomerServiceimpl implements CustomerServiceinterface {
 		
 //		set Ledger Details
 		
-//		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");  
+ 
 		SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MM-dd");  
 	    Date date = new Date();  
 		String ledgerDate=formatter.format(date);
@@ -152,16 +145,16 @@ public class CustomerServiceimpl implements CustomerServiceinterface {
 		customer.getLoandisbursement().setAmountPaidDate(ledgerDate);
 		
 		customer.getLedger().setLedgerCreatedDate(ledgerDate);
-		customer.getLedger().setTotalLoanAmount(customer.getSanctionletter().getLoanAmtSanctioned());
-		customer.getLedger().setPayableAmountwithInterest(customer.getCurrentloandetails().getTotalAmountToBePaid());
-		customer.getLedger().setTenure(customer.getSanctionletter().getLoanTenure());
-		customer.getLedger().setMonthlyEMI(customer.getSanctionletter().getMonthlyEmiAmount());
+		customer.getLedger().setTotalLoanAmount(customer.getSanctionletter().getLoanRequired());
+//		customer.getLedger().setPayableAmountwithInterest(customer.getCurrentloandetails().get);
+		customer.getLedger().setTenure(customer.getSanctionletter().getSanTenure());
+		customer.getLedger().setMonthlyEMI(customer.getSanctionletter().getMonthlyEmi());
 		
 		
 		
 		Calendar today = new GregorianCalendar();
 		today.setTime(new Date());
-		int loanTenure=customer.getSanctionletter().getLoanTenure();
+		int loanTenure=customer.getSanctionletter().getSanTenure();
 		Calendar cal = Calendar.getInstance(); 
 		cal.add(Calendar.MONTH, loanTenure);
 		System.out.println("************************Date :"+cal.get(Calendar.DATE)+"-"+cal.get(Calendar.MONTH)+"-"+cal.get(Calendar.YEAR));

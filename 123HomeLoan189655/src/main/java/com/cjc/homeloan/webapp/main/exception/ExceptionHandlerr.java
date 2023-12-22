@@ -2,12 +2,9 @@ package com.cjc.homeloan.webapp.main.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-@ControllerAdvice
-public class GlobalException {
-
+public class ExceptionHandlerr {
 	
 	@ExceptionHandler(NotFoundException.class)
 	public ResponseEntity<String> NotFoundExceptionHandler(NotFoundException p)
@@ -21,4 +18,5 @@ public class GlobalException {
 	{
 		return new ResponseEntity<String>(p.getMessage(),HttpStatus.BAD_REQUEST);
 	}
+
 }
