@@ -39,15 +39,10 @@ public class CustomerController {
 	@Autowired
 	EnquiryDetailsServiceI enquiryDetailsServiceI;
 	
-	
-	
-	
-	
-
 	@PostMapping("/saveRegDetailsData")
 	public Customer saveRegData(@RequestBody Customer rd)
 	{
-		System.out.println("uuuuuuuuuuuuuuuuuuuuuuuuuuu");
+
 		Customer crd= customerServiceInterface.saveRegData(rd);
 		return crd;	
 	}

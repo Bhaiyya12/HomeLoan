@@ -4,6 +4,7 @@ package com.cjc.homeloan.webapp.main.controller;
 
 import java.util.List;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -18,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.cjc.homeloan.webapp.main.model.EnquiryDetails;
 import com.cjc.homeloan.webapp.main.serviceinterface.EnquiryDetailsServiceI;
 @CrossOrigin("*")
+
 @RestController
 @RequestMapping("/api")
 public class EnquiryDetailsContoller {
@@ -59,7 +61,7 @@ public class EnquiryDetailsContoller {
 	@GetMapping("/genCibil/{enquiryid}")
 	public EnquiryDetails getCibil(@PathVariable  int enquiryid)
 	{
-		System.out.println("kkk"+enquiryid);
+	
 		
 		EnquiryDetails eq=edi.Cibilgenrate(enquiryid);
 		return eq;

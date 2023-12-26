@@ -11,19 +11,19 @@ import lombok.Data;
 @Entity
 public class CurrentLoanDetails 
 {
+
 	@Id
-	 @GeneratedValue(strategy = GenerationType.AUTO)
-	private int currentloanId;
-	private int currentloanNo;
-	private double loanAmount;
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private int loanId;
+	private String customerName;
+	private String customerEmail;
+	private int cibilScore;
+	private double customerTotalLoanRequired;
+	private int tenure;
 	private double rateOfInterest;
-	private int tenure ;
-	private double totalAmountToBePaid;
-	private double processingFees;
-	private double totalInterest;
-	private String sanctionDate;
-	private String remark;
-	private String status;
-//	@OneToOne(cascade = CascadeType.MERGE.DETACH.REFRESH.REMOVE)
-//	private EMIDetails Emidetails;  
+	
+	
+	@OneToOne(cascade = CascadeType.ALL)
+	private SanctionLetter sanctionletter;
+	 
 }

@@ -10,7 +10,7 @@ import jakarta.persistence.OneToOne;
 import lombok.Data;
 
 @Data
-@Entity
+@Entity 
 public class EnquiryDetails {
 	@Id
 	 @GeneratedValue(strategy = GenerationType.AUTO)

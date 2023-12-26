@@ -52,6 +52,7 @@ public class EnquiryDetailsServiceImpl implements EnquiryDetailsServiceI {
 	public EnquiryDetails editEnquiry(EnquiryDetails enquiry) {
 		return edr.save(enquiry);
 	}
+	
 
 	@Override
 	public EnquiryDetails Cibilgenrate(int enquiryid) {
@@ -73,6 +74,7 @@ public class EnquiryDetailsServiceImpl implements EnquiryDetailsServiceI {
 		
 		enquiryDetails.setCibilScore(a);
 		// Set Date
+		
 		System.out.println("imp3"+enquiryDetails.getFirstName());
 		
 		if(a>650)
@@ -99,18 +101,12 @@ public class EnquiryDetailsServiceImpl implements EnquiryDetailsServiceI {
 		
 		
 		EnquiryDetails save = edr.save(enquiryDetails);
-		System.out.println("imp4");
 		
-		
-		System.out.println(a);
+
 		
 		return save;
 		
-		
-	
-	
-		
-	}
+		}
 	}
 
 	

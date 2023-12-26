@@ -21,7 +21,8 @@ public class AdministratorServiceImpl implements AdministratorService{
 
 	@Autowired private AddministratorRepository ar;
 	@Override
-	public void saveUser(String user_json,MultipartFile userProfile) {
+	public void saveUser(String user_json,MultipartFile userProfile) 
+	{
 		ObjectMapper mapper=new ObjectMapper();
 		Administrator administrator;
 		try {
@@ -31,7 +32,7 @@ public class AdministratorServiceImpl implements AdministratorService{
 			ar.save(administrator);
 				
 		} catch (JsonProcessingException e) {
-			// TODO Auto-generated catch block
+			
 			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
